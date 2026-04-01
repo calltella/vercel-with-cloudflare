@@ -7,5 +7,7 @@
     "bradlc.vscode-tailwindcss",
     "prisma.prisma",
     "shd101wyy.markdown-preview-enhanced",
-  ]
+  ],
+    // （任意）非推奨にしたい拡張機能を列挙できます
+  "unwantedRecommendations": ["github.copilot"]
 }

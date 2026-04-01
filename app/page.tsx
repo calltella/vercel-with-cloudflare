@@ -15,6 +15,12 @@ export default function Home() {
       >
         Login
       </Link>
+      <Link
+        href="/mail-test"
+        className="md:px-4 py-2 block text-(--color-text) hover:text-(--color-secondary)"
+      >
+        メールテスト
+      </Link>
     </main>
   );
 }

@@ -2,8 +2,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  //output   = "../app/generated/prisma" // 指定しない
-  seed = "tsx prisma/seed.ts"
 }
 
 datasource db {
@@ -24,8 +22,8 @@ model User {
   updatedAt     DateTime  @updatedAt
   deletedAt     DateTime?
 
-  accounts Account[]
-  sessions Session[]
+  account Account?
+  session Session?
 
   @@index([email])
   @@map("users")
@@ -36,15 +34,23 @@ enum UserRole {
   admin
 }
 
+enum ColorThemeKey {
+  default
+  blue
+  green
+  purple
+  orange
+}
+
 model Account {
-  id                String @id @default(cuid())
-  userId            String
-  type              String
-  themeMode         String
-  colorThemes       String
+  id          String        @id @default(cuid())
+  userId      String        @unique
+  type        String
+  themeMode   String
+  colorThemes ColorThemeKey
   //provider          String
   //providerAccountId String
-  user              User   @relation(fields: [userId], references: [id])
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   //@@unique([provider, providerAccountId])
   @@unique([userId, type])
@@ -53,9 +59,9 @@ model Account {
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
+  userId       String   @unique
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

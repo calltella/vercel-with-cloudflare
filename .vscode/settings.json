@@ -1,26 +1,41 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "css.lint.unknownAtRules": "ignore",
-  "prisma.pinToPrisma6": true,
-  "tailwindCSS.classFunctions": ["cva", "cx"],
-
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
-  "editor.minimap.enabled": false,
-
-  // 言語別: TSX
-  "[typescriptreact]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features" // TSXは必ずPrettierで
-  },
-
-  // 参考: TS（.ts）も揃える場合
+  // prisma
+  "prisma.enableDiagnostics": false,
+  "prisma.enableCodeLens": false,
+  // Prettier（保存時の自動整形を止める）JS/TS だけ有効にする
+  "editor.formatOnSave": false,
+  "editor.defaultFormatter": null,
   "[typescript]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": false
+  },
+  // Markdown Preview Enhanced
+  "markdown-preview-enhanced.enableScriptExecution": false,
+  // Remote Containers
+  "remote.autoForwardPorts": false,
+  "remote.restoreForwardedPorts": false,
+  // ファイル監視を抑制（Docker/Nodeで効果大）
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/**": true,
+    "**/.wrangler/**": true,
+    "**/dist/**": true
+  },
+  // 検索インデックスを軽量化
+  "search.followSymlinks": false,
+  // ミニマップ無効
+  "editor.minimap.enabled": false,
+  // パンくず無効
+  "breadcrumbs.enabled": false,
+  "files.associations": {
+    "wrangler.json": "jsonc"
   }
 }

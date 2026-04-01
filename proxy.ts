@@ -13,7 +13,7 @@ import type { NextRequest } from "next/server";
 
 export async function proxy(req: NextRequest) {
   if (process.env.NODE_ENV === "development") {
-    console.log("proxy hit:", req.nextUrl.pathname);
+    //console.log("proxy hit:", req.nextUrl.pathname);
   }
 
   const sessionToken =
@@ -21,7 +21,7 @@ export async function proxy(req: NextRequest) {
     req.cookies.get("__Secure-authjs.session-token")?.value;
 
   if (process.env.NODE_ENV === "development") {
-    console.log("sessionToken:", sessionToken);
+    //console.log("sessionToken:", sessionToken);
   }
 
   // 🔒 未ログイン時のリダイレクト（必要になったらON）

@@ -72,7 +72,7 @@ export default function TopNaviMenu() {
               <ProfileMenu
                 userName={session?.user.name || ""}
                 avatarsImage={
-                  session?.user.image || "/avatars/default.png"
+                  session?.user.avatarUrl || "/avatars/default.png"
                 }
               />
             </div>

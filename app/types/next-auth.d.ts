@@ -8,6 +8,7 @@ declare module "next-auth" {
     user: {
       id: string;
       role: UserRole;
+      avatarUrl?: string | null;
       themeMode: ThemeMode;
       themeColor: ColorThemeKey;
     } & DefaultSession["user"];
@@ -17,11 +18,15 @@ declare module "next-auth" {
     id: string;
     email: string;
     name?: string | null;
+    role?: UserRole;
+    avatarUrl?: string | null;
   }
 }
 
 declare module "next-auth/jwt" {
   interface JWT extends DefaultJWT {
     id: string;
+    role?: UserRole;
+    avatarUrl?: string | null;
   }
 }

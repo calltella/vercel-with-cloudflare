@@ -2,7 +2,7 @@
 "use client";
 
 import { COLOR_THEMES, ColorThemeKey } from "@/app/theme/colorTheme";
-import { updateColorTheme } from "./actions";
+import { updateColorTheme } from "./updateColorTheme";
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
