@@ -12,7 +12,7 @@ export async function updateColorTheme(theme: ColorThemeKey) {
     where: { id: session.user.id },
     select: {
       id: true,
-      accounts: {
+      account: {
         select: {
           type: true,
         },
@@ -28,7 +28,7 @@ export async function updateColorTheme(theme: ColorThemeKey) {
     where: {
       userId_type: {
         userId: session.user.id,
-        type: user.accounts[0]?.type,
+        type: user.account[0]?.type,
       },
     },
     data: { colorThemes: theme },
