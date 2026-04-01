@@ -20,7 +20,7 @@ export async function updateColorTheme(theme: ColorThemeKey) {
     },
   });
 
-  if (!user) {
+  if (!user || !user.account) {
     return null;
   }
 
@@ -28,7 +28,7 @@ export async function updateColorTheme(theme: ColorThemeKey) {
     where: {
       userId_type: {
         userId: session.user.id,
-        type: user.account[0]?.type,
+        type: user.account.type,
       },
     },
     data: { colorThemes: theme },
